@@ -1,3 +1,16 @@
+# Compile from git
+
+```
+libtoolize --force
+aclocal
+autoheader
+automake --force-missing --add-missing
+autoconf
+./configure
+make
+make install
+```
+
 # Compiling DIDA from source
 
 To compile and install DIDA in /usr/local:
