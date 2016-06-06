@@ -555,7 +555,7 @@ void dida_align(const int procRank, const int procSize, const char *refName) {
         else if (opt::mapper== "bowtie2") {
             std::ostringstream bow_aln_stm;
             std::string bowRef = refPartName.substr(0,refPartName.rfind("."));
-            bow_aln_stm << "bowtie2-align -f -p " <<opt::threads<<
+            bow_aln_stm << "bowtie2 -local -D 20 -R 3 -N 1 -L 20 -i S,1,0.50 -p " <<opt::threads<<
             " -x "<<bowRef<<" -U "<<readsName<< " "<<outputRedir.str();
             std::cerr<<bow_aln_stm.str()<<"\n";
             dida_system(bow_aln_stm.str().c_str());
